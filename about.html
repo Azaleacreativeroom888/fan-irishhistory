@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>このサイトについて | アイルランド史研究室</title>
+<meta name="robots" content="noai, noimageai">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cinzel+Decorative:wght@700;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F3C531;
+    --bg-deep: #E3AE1B;
+    --paper: #FBE7A1;
+    --green-deep: #123524;
+    --green-mid: #1F5C3F;
+    --green-bright: #4F9E72;
+    --clover: #8DC63F;
+    --ink: #201804;
+    --gold-line: #9C6E12;
+    --maroon: #7A2E1D;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'EB Garamond', serif;
+    font-size: 19px;
+    line-height: 1.75;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(255,255,255,0.10), transparent 45%),
+      radial-gradient(circle at 85% 75%, rgba(0,0,0,0.05), transparent 40%);
+  }
+
+  a{ color: var(--green-deep); }
+  .wrap{ max-width: 1040px; margin: 0 auto; padding: 0 28px; }
+
+  /* ---------- Header / Nav ---------- */
+  header{ background: var(--green-deep); color: var(--paper); border-bottom: 6px solid var(--gold-line); }
+  .nav-inner{
+    max-width: 1040px; margin:0 auto; padding: 18px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+    flex-wrap: wrap; gap: 14px;
+  }
+  .brand{
+    font-family:'Cinzel', serif; font-weight:700; font-size: 1.15rem; letter-spacing: .06em;
+    color: var(--paper); text-decoration:none; display:flex; align-items:center; gap:10px;
+  }
+  .brand .mark{ color: var(--clover); font-size:1.3rem; }
+  nav ul{ list-style:none; display:flex; gap: 30px; flex-wrap: wrap; }
+  nav a{
+    color: var(--paper); text-decoration:none; font-family:'Cinzel', serif;
+    font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; opacity: .88;
+    border-bottom: 1px solid transparent; padding-bottom: 3px;
+    transition: opacity .2s, border-color .2s;
+  }
+  nav a:hover{ opacity:1; border-color: #E9C24B; }
+  nav a.current{ opacity:1; border-color:#E9C24B; }
+
+  /* ---------- Page banner ---------- */
+  .page-banner{ padding: 64px 0 40px; }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace; font-size: .78rem; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--maroon); margin-bottom: 18px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{ content:''; display:inline-block; width:26px; height:2px; background: var(--maroon); }
+  .page-title{
+    font-family:'Cinzel Decorative', serif; font-weight:700; color: var(--green-deep);
+    font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.1;
+  }
+  .page-lede{ margin-top: 18px; max-width: 620px; font-style: italic; color: var(--ink); }
+
+  .knot-divider{ display:flex; align-items:center; justify-content:center; gap: 18px; margin: 0 auto; width: 100%; }
+  .knot-divider .line{ flex:1; height:2px; background: var(--gold-line); opacity:.55; max-width: 340px; }
+  .knot-divider svg{ flex-shrink:0; }
+
+  /* ---------- About section ---------- */
+  .about{ padding: 60px 0; }
+  .about-body{ max-width: 680px; margin: 0 auto; }
+  .section-label{
+    font-family:'Cinzel', serif; font-size: .78rem; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--maroon); display:flex; align-items:center; gap: 14px; margin-bottom: 22px;
+  }
+  .section-label::after{ content:''; flex:1; height:1px; background: linear-gradient(90deg, var(--gold-line), transparent); opacity:.6; }
+  .about-text p{ margin-bottom: 16px; color: var(--ink); }
+  .about-text p:last-child{ margin-bottom: 0; }
+
+  /* ---------- Links grid ---------- */
+  .links{ padding: 20px 0 60px; background: var(--paper); border-top: 1px solid rgba(0,0,0,.08); border-bottom: 1px solid rgba(0,0,0,.08); }
+  .links .wrap{ padding-top: 56px; }
+  .link-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .link-card{
+    display:flex; align-items:center; gap: 16px;
+    text-decoration:none;
+    background: var(--bg);
+    border: 1px solid rgba(0,0,0,.1);
+    border-left: 4px solid var(--green-mid);
+    padding: 16px 18px;
+    transition: transform .2s, box-shadow .2s, border-color .2s;
+  }
+  .link-card:nth-child(even){ border-left-color: var(--clover); }
+  .link-card:hover{ transform: translateY(-3px); box-shadow: 0 8px 20px rgba(18,53,36,.14); }
+  .link-icon{
+    font-size: 22px; flex-shrink:0; width: 42px; height:42px;
+    display:flex; align-items:center; justify-content:center;
+    background: var(--paper); border: 1px solid var(--gold-line);
+    border-radius: 50%;
+  }
+  .link-text{ flex:1; min-width:0; }
+  .link-name{
+    display:block; font-family:'Cinzel', serif; font-size: .92rem; color: var(--green-deep); margin-bottom: 3px;
+  }
+  .link-desc{ display:block; font-size: .85rem; color: var(--maroon); opacity: .85; }
+  .link-arrow{ font-size: 1.1rem; color: var(--green-mid); opacity:.5; transition: opacity .2s, transform .2s; }
+  .link-card:hover .link-arrow{ opacity:1; transform: translateX(3px); }
+
+  /* ---------- Contact form ---------- */
+  .contact{ padding: 60px 0 90px; }
+  .form-card{
+    max-width: 640px; margin: 0 auto;
+    background: var(--paper);
+    border: 1px solid rgba(0,0,0,.08);
+    border-left: 4px solid var(--green-mid);
+    padding: 34px 36px;
+  }
+  .form-intro{ font-size: .96rem; color: var(--ink); margin-bottom: 24px; line-height: 1.8; }
+  .form-group{ margin-bottom: 18px; }
+  .form-label{
+    display:block; font-family:'JetBrains Mono', monospace; font-size: .78rem;
+    letter-spacing: .08em; color: var(--maroon); margin-bottom: 7px;
+  }
+  .required{ color: var(--maroon); }
+  .form-input, .form-textarea{
+    width:100%;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,.18);
+    color: var(--ink);
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem;
+    padding: 10px 14px;
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .form-input:focus, .form-textarea:focus{
+    border-color: var(--green-mid);
+    box-shadow: 0 0 0 3px rgba(31,92,63,.12);
+  }
+  .form-textarea{ resize: vertical; min-height: 140px; }
+  .field-error{ display:block; font-size: .78rem; color: var(--maroon); margin-top: 5px; }
+  .form-submit{
+    display:inline-flex; align-items:center; gap:8px;
+    background: var(--green-deep);
+    border: 2px solid var(--green-deep);
+    color: var(--paper);
+    font-family:'Cinzel', serif;
+    font-size: .82rem;
+    letter-spacing:.1em;
+    text-transform: uppercase;
+    padding: 13px 30px;
+    cursor:pointer;
+    transition: background .2s, border-color .2s;
+    margin-top: 6px;
+  }
+  .form-submit:hover{ background: var(--maroon); border-color: var(--maroon); }
+  .form-submit:disabled{ opacity:.5; cursor:not-allowed; }
+  .form-success{
+    background: rgba(31,92,63,.12);
+    border: 1px solid var(--green-mid);
+    padding: 16px 20px;
+    text-align:center;
+    color: var(--green-deep);
+    font-size: .96rem;
+    margin-bottom: 20px;
+  }
+  .form-success-icon{ display:block; font-size: 1.2rem; margin-bottom: 6px; color: var(--green-mid); }
+  .form-error-global{
+    background: rgba(122,46,29,.1);
+    border: 1px solid var(--maroon);
+    padding: 12px 16px;
+    color: var(--maroon);
+    font-size: .9rem;
+    margin-bottom: 16px;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{ background: var(--green-deep); color: var(--paper); padding: 50px 0 34px; border-top: 6px solid var(--gold-line); }
+  .footer-grid{ display:grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 36px; padding-bottom: 34px; }
+  .footer-title{
+    font-family:'Cinzel', serif; font-size: .85rem; letter-spacing:.14em;
+    text-transform:uppercase; color:#E9C24B; margin-bottom: 14px;
+  }
+  .footer-brand{ font-family:'Cinzel Decorative', serif; font-size: 1.2rem; margin-bottom: 10px; }
+  .footer-desc{ font-size:.92rem; opacity:.82; max-width: 320px; }
+  footer ul{ list-style:none; }
+  footer li{ margin-bottom: 9px; }
+  footer a{ color: var(--paper); opacity:.85; text-decoration:none; font-size:.94rem; }
+  footer a:hover{ opacity:1; text-decoration: underline; }
+  .footer-note{ border-top: 1px solid rgba(255,255,255,.15); padding-top: 22px; font-size: .78rem; opacity: .68; line-height: 1.6; }
+
+  @media (max-width: 640px){
+    .footer-grid{ grid-template-columns: 1fr; }
+    .form-card{ padding: 28px 22px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){ *{ transition: none !important; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <a href="index.html" class="brand"><span class="mark">☘</span>アイルランド史研究室</a>
+    <nav>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="blog.html">BLOG</a></li>
+        <li><a href="gallery.html">GALLERY</a></li>
+        <li><a href="about.html" class="current">ABOUT</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="page-banner">
+  <div class="wrap">
+    <p class="eyebrow">ABOUT · THIS SITE</p>
+    <h1 class="page-title">このサイトについて</h1>
+    <p class="page-lede">運営者の紹介と、このサイトの成り立ちについて。</p>
+  </div>
+</section>
+
+<div class="knot-divider">
+  <span class="line"></span>
+  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+    <path d="M20 4 C6 4 6 20 20 20 C34 20 34 36 20 36 C6 36 6 20 20 20 C34 20 34 4 20 4 Z" stroke="#8DC63F" stroke-width="2.5"/>
+  </svg>
+  <span class="line"></span>
+</div>
+
+<section class="about">
+  <div class="wrap">
+    <div class="about-body">
+      <p class="section-label">About</p>
+      <div class="about-text">
+        <p>「アイルランド史研究室」は、歴史好きの一個人が運営する学習記録サイトです。専門の研究者ではなく、一人の学習者として、本や資料から学んだことを自分なりに整理し、記録していく場所として作りました。</p>
+        <p>トップページの年表やテーマ一覧は、まだ学び始めたばかりの地図のようなものです。日記（Blog）には日々の気づきを、ギャラリーには調べながら集めている図案や意匠のメモを置いています。</p>
+        <p>掲載内容の解釈や理解には誤りが含まれる可能性があります。お気づきの点がありましたら、下のフォームからご連絡いただけると嬉しいです。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="links">
+  <div class="wrap">
+    <p class="section-label">Links</p>
+    <div class="link-grid">
+
+      <a class="link-card" href="https://azaleacreativeroom888.github.io/" target="_blank" rel="noopener">
+        <div class="link-icon">✦</div>
+        <div class="link-text">
+          <span class="link-name">Azalea72の創作部屋</span>
+          <span class="link-desc">運営者のメインサイト・創作ハブ</span>
+        </div>
+        <span class="link-arrow">›</span>
+      </a>
+
+      <a class="link-card" href="https://www.pixiv.net/users/105728284" target="_blank" rel="noopener">
+        <div class="link-icon">🎨</div>
+        <div class="link-text">
+          <span class="link-name">Pixiv</span>
+          <span class="link-desc">イラスト・漫画を掲載</span>
+        </div>
+        <span class="link-arrow">›</span>
+      </a>
+
+      <a class="link-card" href="https://bsky.app/profile/azaleaazalea88.bsky.social" target="_blank" rel="noopener">
+        <div class="link-icon">🦋</div>
+        <div class="link-text">
+          <span class="link-name">Bluesky</span>
+          <span class="link-desc">近況のお知らせ</span>
+        </div>
+        <span class="link-arrow">›</span>
+      </a>
+
+      <a class="link-card" href="https://www.youtube.com/@LilyPopins0512" target="_blank" rel="noopener">
+        <div class="link-icon">🎬</div>
+        <div class="link-text">
+          <span class="link-name">YouTube（リリポピ）</span>
+          <span class="link-desc">動画チャンネル</span>
+        </div>
+        <span class="link-arrow">›</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="wrap">
+    <p class="section-label">Contact</p>
+
+    <div class="form-card">
+      <p class="form-intro">ご感想・訂正のご指摘などはこちらからどうぞ。内容を確認のうえ、返信いたします。</p>
+
+      <div data-fs-success class="form-success" style="display:none;">
+        <span class="form-success-icon">✦</span>
+        <p>メッセージを送信しました。ありがとうございます！</p>
+      </div>
+
+      <div data-fs-error class="form-error-global" style="display:none;"></div>
+
+      <form id="contact-form" action="https://formspree.io/f/maqvpvoz" method="POST">
+
+        <div class="form-group">
+          <label class="form-label" for="name">お名前</label>
+          <input class="form-input" type="text" id="name" name="name" placeholder="任意" >
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">メールアドレス <span class="required">*</span></label>
+          <input class="form-input" type="email" id="email" name="email" data-fs-field placeholder="example@email.com" required>
+          <span data-fs-error="email" class="field-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="message">メッセージ <span class="required">*</span></label>
+          <textarea class="form-textarea" id="message" name="message" data-fs-field placeholder="メッセージを入力してください…" rows="6" required></textarea>
+          <span data-fs-error="message" class="field-error"></span>
+        </div>
+
+        <button class="form-submit" type="submit" data-fs-submit-btn>送信する</button>
+
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand">☘ アイルランド史研究室</p>
+        <p class="footer-desc">アイルランドの歴史を自分のペースで学ぶ、個人の研究ノートサイトです。史実の解釈には諸説あり、学習途上の記録として公開しています。</p>
+      </div>
+      <div>
+        <p class="footer-title">Pages</p>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-title">Notice</p>
+        <ul>
+          <li style="opacity:.75; font-size:.85rem; line-height:1.6;">当サイトの文章・画像は生成AIの学習利用を許可しません。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-note">
+      本サイトのテキストおよび画像は、生成AIの学習データとしての使用を禁じます。/ The text and images on this site may not be used for AI training purposes.
+      <br>© Azalea Creative Room. Personal history study project — for educational purposes.
+    </div>
+  </div>
+</footer>
+
+<script>
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { formElement: '#contact-form', formId: 'maqvpvoz' });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+</body>
+</html>
