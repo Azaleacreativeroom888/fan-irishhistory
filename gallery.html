@@ -114,6 +114,47 @@
   }
   .g-desc{ font-size: .92rem; color: var(--ink); opacity: .9; }
 
+  /* ---------- Report link box ---------- */
+  .report-box{
+    display:flex; align-items:center; gap: 24px;
+    text-decoration:none;
+    background: var(--green-deep);
+    color: var(--paper);
+    border: 1px solid var(--gold-line);
+    border-left: 6px solid var(--clover);
+    padding: 28px 32px;
+    margin-bottom: 44px;
+    position: relative;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .report-box:hover{ transform: translateY(-3px); box-shadow: 0 12px 28px rgba(18,53,36,.28); }
+  .report-icon{
+    flex-shrink:0; width: 56px; height: 56px; border-radius: 50%;
+    border: 2px solid #E9C24B;
+    display:flex; align-items:center; justify-content:center;
+    font-size: 1.6rem; color: var(--clover);
+  }
+  .report-text{ flex:1; min-width:0; }
+  .report-tag{
+    font-family:'JetBrains Mono', monospace; font-size: .72rem;
+    letter-spacing: .14em; text-transform: uppercase; color: #E9C24B;
+  }
+  .report-title{
+    font-family:'Cinzel', serif; font-size: 1.2rem; color: var(--paper);
+    margin: 6px 0 4px; letter-spacing: .02em;
+  }
+  .report-desc{ font-size: .95rem; opacity: .85; }
+  .report-arrow{
+    font-size: 1.8rem; color: #E9C24B; flex-shrink:0;
+    transition: transform .2s;
+  }
+  .report-box:hover .report-arrow{ transform: translateX(5px); }
+
+  @media (max-width: 640px){
+    .report-box{ padding: 22px 20px; gap: 16px; }
+    .report-icon{ width: 44px; height: 44px; font-size: 1.3rem; }
+  }
+
   .g-note{
     max-width: 720px; margin: 56px auto 0; text-align:center;
     font-size: .92rem; color: var(--maroon);
@@ -177,6 +218,17 @@
 
 <section class="gallery">
   <div class="wrap">
+
+    <a class="report-box" href="report1.html">
+      <div class="report-icon">☘</div>
+      <div class="report-text">
+        <p class="report-tag">Special Report</p>
+        <h2 class="report-title">アイルランドに関わりのある人物</h2>
+        <p class="report-desc">聖パトリキウスからイースター蜂起の指導者たちまで、アイルランド史を彩った人物をまとめた特集ページ。</p>
+      </div>
+      <span class="report-arrow">›</span>
+    </a>
+
     <div class="g-grid">
 
       <div class="g-card">
